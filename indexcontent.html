@@ -16,7 +16,9 @@
 		  3. Full vison of plate
 		  
 		  I am aware that my testing sample is small and there some consistancy on the photo due to field of vision need to be 
-		  adjusted
+		  adjusted.
+		  
+		  The testing method is taking tests of the plate is vision  and changing the distance from the image to the camera with increaments of 15 cm
 		  
 		</p>
 		
@@ -48,6 +50,21 @@
 		This is the result of 75 cm 
 	<br>
 		
+		<p> 
+		So the observiaton is the plate is giving the correct plate number from 15 cm to 
+		60cm. On the 75cm distance its getting the wrong distance. 
+			
+		Another way to find the optimal distance is making sure the first result has a very high confidence.
+		so this occurs around 15 cm to 45 cm with around 90% confidence of what the license plate is trying to recongize.
+			
+		The final thing to filter out to figure out  the best distance is to make sure the 2nd confidence level should be a big delta compared to the
+		first confidence level plate. This will ensure that it is less likely that the 2nd wrong license plate to be recongized as an guess plate.
+		Looking into the data around 30 cm and 45 cm ensure around 8% or 10% difference. Thus  around 30 cm and between 45 will become the best result.
+		
+		So with all considerations it seems the image at 45 cm is deemed to be best distance to take photo of the plate numbers
+		
+		
+		</p>
 
 	  
  	 
