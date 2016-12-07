@@ -1,497 +1,675 @@
 <ARTICLE ID="Article_1">
- <HEADER ID="Header_Article_1">
-  <H2>Building IoT Projects</H2>
- </HEADER>
+	<HEADER ID="Header_Article_1">
+		<H2>Building IoT Projects</H2>
+	</HEADER>
 	
 	
-	<SECTION ID="Section_13">
-  <H3>Week 13</H3>
-  <p>
-	  
-	  Submission of PowerPoint <br>
-	  
-	  	<video width="320" height="240" controls>
-  <source src="video/buildvideo.mp4" type="video/mp4">
-Your browser does not support the video tag.
-</video>
-	  
-	  <br>
-	  
-	    Submission of Powerpoint <a href="/documentation/powerPoint.odp"> Power Point </a>
-	 	
-	  
- 	 
-		  
-  </p>
- </SECTION>
- 
-	
-	
-	
-	<SECTION ID="Section_12">
-  <H3>Week 12</H3>
-  <p>
-	  
-	Project Status
 
+	<SECTION ID="Section_14">
+		<H3>Week 13</H3>
+		<H4>Introduction using a system diagram </H4>
 
-<br>
 
-<p> The main purpose of this week is to find and test the optimal point the camera should be pointed to. 
+		<img src="/image/submission/SystemDiagram.png" alt="System Diagram">
 
-So some of requirements to allow the license plate to read is to have 
-	<br>
-1. High accuracy of the plate and correct of the plate
-<br>
-2. Correct distance from camera
-<br>
-3. Full vision of plate
-
-
-
-I am aware that my testing sample is small and there some consistency on the photo due to field of vision need to be 
-
-adjusted.
-
-
-
-The testing method is taking tests of the plate is vision and changing the distance from the image to the camera with increments of 15 cm
-
-
-
-</p>
-
-
-
-
-
-<img src="/image/test_result/ea7the.jpg" alt="orignal image" width="128" height="128">
-
-<br>
-
-This is the original license plate that being used
-
-<br>
-
-
-
-<img src="/image/test_result/15cm.png" alt="15 cm test" >
-
-<br>
-
-This is the result of 15 cm 
-
-<br>
-
-
-
-<img src="/image/test_result/30cm.png" alt="30 cm test" >
-
-<br>
-
-This is the result of 30 cm 
-
-<br>
-
-<img src="/image/test_result/45 cm.png" alt="45 cm test" >
-
-<br>
-
-This is the result of 45 cm 
-
-<br>
-
-<img src="/image/test_result/60cm.png" alt="60 cm test" >
-
-<br>
-
-This is the result of 60 cm 
-
-<br>
-
-<img src="/image/test_result/75cm.png" alt="75 cm test" >
-
-<br>
-
-This is the result of 75 cm 
-
-<br>
-
-<br>
-
-
-
-<p> 
-
-So the observation is the plate is giving the correct plate number from 15 cm to 
-
-60cm. On the 75cm distance its getting the wrong distance. 
-
-<br>
-
-<br>
-
-
-
-Another way to find the optimal distance is making sure the first result has a very high confidence.
-
-so this occurs around 15 cm to 45 cm with around 90% confidence of what the license plate is trying to recognize.
-
-<br> 
-
-<br>
-
-The final thing to filter out to figure out the best distance is to make sure the 2nd confidence level should be a big delta compared to the first
-
- confidence level plate. This will ensure that it is less likely that the 2nd wrong license plate to be recognized as first guess plate.
-
-Looking into the data around 30 cm and 45 cm ensure around 8% or 10% difference. Thus around 30 cm and between 45 will become the best result.
-
-<br>
-
-<br>
-
-So with all considerations it seems the image at 45 cm is deemed to be best distance to take photo of the plate numbers
-
-
-<p>
-
-Currently for the project there is consideration of switching to a proper camera in the future and there might
-
-be some component to remove depending on the functionally of project this might remove the LCD display.  <a href="/documentation/Billofmaterial.docx"> Budget </a>
-So it is currently way less to our inital guess of 200$ as of now
-
-		
-		
-		</p>
-		
 		<br>
 
+		<p>
+			When the car come through the gate , the development board will  request a visual input of the car’s license plate, and translates that to data into the database. After the system finishes processing the image. It will display a red led to indicate that its finished and can go ahead to open the gate. 
 
-</p>
+		</p>
+
+		<H4>Bill of Materials/Budget</H4>
+		<p>
+			The suggested goal of this project is to create a  base system to less than $200 and beyond that we would want to scale the capability of the system with necessary sensor to create the smart parking experience . This means that to handle additional cars we would need additional  10$ ultrasonic sensor to fit the necessary cars to be in the parking system.
+			<br>
+			<a href="/documentation/Billofmaterial.docx"> Budget </a>
+		</p>
 
 
 
+		<H4>Time Commitment</H4>
+		<p>
+			Based on the Gantt chart I allocated around 60 hours in total for the group. So with the effort as an individual it's a effort of around 15 hour continuous work to get my outcome to work. 
+
+			<br>
+
+			If I were to divide the hours it would be 6 hours that was for planning and defining the problem. After it would be around 2 hours dedicated to soldering the pcb parts and 4 hours to install and combine all the software working part. The remaining 3 hours were used to test and understand the parking system better. 
+
+			<br>
+			<a href="/documentation/GanttChart.vsdx">Gantt Chart</a>
+		</p>
+
+
+
+		<H4>Mechanical Assembly</H4>
+		<p>
+			The Mechanical Assembly consist of combining the sense hat created from the Humber prototype lab with the Raspberry Pi. Afterward there was a need to connect the webcam through a wifi network the webcam provided.
+
+
+			<br>
+			<video width="320" height="240" controls>
+				<source src="video/buildvideo.mp4" type="video/mp4">
+					Your browser does not support the video tag.
+				</video>
+			</p>
+
+
+			<H4>PCB / Soldering</H4>
+			<p>
+				The PCB parts that i needed mainly was the LED light that can be controlled through the GPIO pin , i needed this visual indicator to allow other people to know when the system is running and executing the image processing on the raspberry pi 
+
+				<br>
+
+				<img src="/image/IMG_20161019_133629.jpg" alt="PCB image">
+
+			
+			</p>
+
+
+			<H4>PCB / Soldering</H4>
+			<p>
+				The PCB parts that i needed mainly was the LED light that can be controlled through the GPIO pin , i needed this visual indicator to allow other people to know when the system is running and executing the image processing on the raspberry pi 
+				<br>
+
+				<img src="/image/IMG_20161019_133629.jpg" alt="PCB image">
+
+
+			</p>
+
+
+
+
+			<H4>Power Up</H4>
+			<p>
+				This is the proof of concept that the parts I had ordered had be running. 
+
+
+				<video width="320" height="240" controls>
+					<source src="video/HardwareProject.mp4" type="video/mp4">
+						Your browser does not support the video tag.
+					</video>
+
+				</p>
+
+				<H4>Unit Testing</H4>
+				<p>
+					The unit testing i have done with  my system concerns the camera, So i did multiple tests to ensure i get a best distance that my image recognition is best recognized. This is mainly shown in week 12
+
+					<br>
+
+
+
+					<a 
+					href="#Section_12">Week 12</a>
+
+
+				</p>
+
+
+				<H4>Production Testing</H4>
+				<p>
+					In order to test the whole production of the system , I  demonstrated and integrated the entire system. So what this means is that I attached all my units/parts of my system together.  This includes the video input of the webcam, the raspberry pi , and the LED light with the binding part of the software.
+
+					<br>
+
+					The video in week 13 shows how to setup the production testing 
+
+
+
+
+
+					<a 
+					href="#Section_13">Week 13</a>
+
+
+				</p>
+
+				<H4>Is the project reproducible by following your instructions</H4>
+				<p>
+				This is project is mainly contributed to the following :  <a href="http://lukagabric.com/raspberry-pi-license-plate-recognition/"> website </a> 
+
+
+					One of main thing to get is the all the library to be able to run the program.
+					The following gives a detailed explanation of steps to be taken.
+					<a href="
+					https://github.com/openalpr/openalpr/wiki/Compilation-instructions-(Ubuntu-Linux)"> Install Steps </a>
+
+					<br>
+
+
+					sudo apt-get update && sudo apt-get install -y openalpr openalpr-daemon openalpr-utils libopenalpr-dev
+					Installing all this will allow us to run the special commands 
+
+					<br>
+
+					Afterward  there is a need to install an ip camera app called ip webcam on  the android device
+
+					<a href="https://play.google.com/store/apps/details?id=com.pas.webcam&hl=en
+"> Camera App </a>
+
+					<br>
+
+					This is a need to download a driver to make sure that the ip camera stream is recognized as a physical stream on the raspberry device so.There a program needed called 
+					<a href="http://www.linux-projects.org/uv4l/installation/"> uv4l </a> 
+					
 <br>
 
+					So inside my Project the connectWebcam.sh need to be editted to the correct ip address of the webstream. 
+<br>
 
-		
-		
-	
-	<SECTION ID="Section_11">
-  <H3>Week 11</H3>
-  <p>
-	  
-	  Project Status <br>
-	  
-	<p> After the open house , I learnt from when I was demoing  the camera. It  was at times abit fickle due to the range and accuracy 
-		of the camera and resoultion it needs to recongize. 
-		There was also issue with power consumption of the device / heat of the camera if it need to run constantly so there should
-		be a way to turn it on and off when a sensor is asked for. Also there should be more hardware sensors addded to intergrate the whole project.
-		Currently the financial for the camera is really dependant on what the camera fits or need, ethier a connected camera or a wireless ip camera to 
-		be used.
-		
-		The project is behind on the hardware reading some sensors and the softwares is mostly done 
-		
-	
-		
-	  
- 	 
-		  
-  </p>
- </SECTION>
-		<SECTION ID="Section_10">
-  <H3>Week 10</H3>
-  <p>
-	  
-	  Project Status <br>
-	  
-	<p> Currently I have one of the ultrasonic sensor working. Now trying to get the camera software working on raspberry pi, and the compiling and 
-		making the project is still taking a while , source and info based on 
-		
-		
-	 <a href="http://lukagabric.com/raspberry-pi-license-plate-recognition/">Camera software resource </a>
-		 <a href="https://www.modmypi.com/blog/hc-sr04-ultrasonic-range-sensor-on-the-raspberry-pi"> Ultrasonic sensor resource </a>
-		
-	  
- 	 
-		  
-  </p>
- </SECTION>
-	
-	
-		<SECTION ID="Section_9">
-  <H3>Week 9</H3>
-  <p>
-	  
-	  Submission of Video <br>
-	  
-	  	<video width="320" height="240" controls>
-  <source src="video/HardwareProject.mp4" type="video/mp4">
-Your browser does not support the video tag.
-</video>
-	 
-	  
- 	 
-		  
-  </p>
- </SECTION>
- 
+					After sh connectWebcam.sh
+					To run the program you should show a image of license plate around 45 cm away from your camera in a clear visible view and execute the script file 
 
-	
-		
-	<SECTION ID="Section_8">
-  <H3>Week 8</H3>
-  <p>
-	  
-	  Submission of Placard <a href="/image/placard.pub"> Smart Parking Lot(pub) </a>
-	  <br>
-	   <img src="/image/placard.PNG" alt="Project Placard" width="128" height="128">
-	<br>
-	These are the sample images to be used on the placard
-	  <br>
-	  <img src="/image/IMG_20161025_160239.jpg" alt="Project Picture1" width="128" height="128">
-	  <img src="/image/IMG_20161025_160330.jpg" alt="Alternate Project Picture" width="128" height="128">
-	  
- 	 
-	  
-	  
-	  
-	  
-  </p>
- </SECTION>
-	
-	
-	<SECTION ID="Section_6">
-  <H3>Week 7</H3>
-  <p>
-	  
-	  <img src="/image/IMG_20161019_133543.jpg" alt="Raspberry Pi  Reading" width="128" height="128">
- 	These are the sensor readings from PCB running on the raspberry PI
-	  
-	  
-	    <img src="/image/IMG_20161019_133629.jpg" alt="Raspberry Pi  Reading" width="128" height="128">
- 	This is the led lighting up , using the first week code 
-	  
-  </p>
- </SECTION>
-	
-	
-<SECTION ID="Section_5">
-  <H3>Week 6</H3>
-  <p>
-	  <li><img src="/image/IMG_20161012_130944.jpg" alt="Current Progress " width="128" height="128"></li>
- 	Currently I attached the lcd as for the build. The camera module missing  due to being backlog at my store, and the board is missing that going to come later.
-	Some issues we found with our previous budget was that the sensor we orginally planned was not capable to run on the raspberry PI so we ordered a cheaper 
-	ultrasonic HC-SR04 senor that allowed us to fit 2 sensors rather than 1. 
-  </p>
- </SECTION>
-	
-<SECTION ID="Section_4">
-  <H3>Week 5</H3>
-  <p>
-   <ul>
- 	<li><img src="/image/IMG_20161012_115150.jpg" alt="List of current Materials" width="128" height="128"></li>
-	  <li>Current parts collected this week </li>
-	  
-   </ul>
-  </p>
- </SECTION>
+<br>
+					sh displayplate.sh
+
+<br>
+					This should give an output of 
+
+<br>
+						<img src="/image/test_result/45 cm.png" alt="45 cm test" >
 
 
- <SECTION ID="Section_3">
-  <H3>Week 3</H3>
-  <p>
-   <ul>
- 	<li>Project Schedule Due.</li>
- 	<li>Budget Due next week.</li>
-    <li>2016-2017 Tuesday Projects:
-	 <ol>
-	  <li>Breathalyzer: <a href="https://EugeneHasJeans.github.io">Eugene</a>, <a href="https://Adriene.github.io">Adriene</a>, <a href="https://RDoughBoy.github.io">Ryan</a></li>
-	  <li>Crib: <a href="https://rafyo127.github.io">Rafil</a>, <a href="https://Masoud647.github.io">Masoud</a>, <a href="https://diveshoree.github.io">Divesh</a></li>
-	  <li>Solar: <a href="https://steve-spiteri.github.io">Steve</a>, <a href="https://github.com/Roflwaffle18/Roflwaffle18.github.io">Salvatore</a>, <a href="https://richard-burak.github.io">Richard</a></li>
-	  <li>Bees: <a href="https://pwestman.github.io">Paul</a>, <a href="https://github.com/yurii">Yurii</a>, <a href="https://robertoloja.github.io">Roberto</a></li>
-	  <li>Flow: <a href="https://github.com/mndk0076/mndk0076.github.io">Kenneth Mendoza</a>, <a href="https://github.io">Matheus</a>, <a href="https://github.com/ssehra">Sukhdeep</a></li>
-	  <li><a href="https://www.youtube.com/watch?v=H36ebUQAkGs">Crystal</a><a href="https://www.youtube.com/user/crystalfountainsinc">?</a>: <a href="https://github.com/irwintr/irwintr.github.io">Trenton</a>, <a href="https://Nefarix.github.io">Oliver</a>, <a href="https://SomethingTimeyWimey.github.io">Vishwas</a></li>
-	  <li>Telematics: <a href="https://Jabneel.github.io">Jabneel</a>, <a href="https://github.com/jerome">Jerome</a>, <a href="https://github.com/n01086924">Jaewoong</a></li>
-	  <li>House: <a href="https://github.com/gurpreetjhita/gurpreetjhita.github.io">Gurpreet</a>, <a href="https://abhirupdas033.github.io">Abhirup</a>, <a href="https://saadq12.github.io">Saad</a></li> 
-	  <li>FarmBot: <a href="https://StudentEng2016.github.io">Adanegbe</a>, <a href="https://maheshwerie.github.io">Maheshwerie</a></li>
-	  <li>Parking: <a href="https://github.com/n01075212/n01075212.github.io">Alisha</a></li> 
-	  </ol>
-	</li>
-	<li>2016-2017 Wednesday Projects:
-	 <ol>
-	  <li>FarmBot (cont.) <a href="https://mahsm.github.io">Maasha</a></li>
-	  <li>Parking (cont.) <a href="https://bigbosstony.github.io">Yan Yu</a>, <a href="https://tc168.github.io">Thomas</a></li> 
-	  <li>Voice: <a href="https://willcodyanderson.github.io">William</a>, <a href="https://Sanjay4966.github.io">Sanjay</a>, <a href="https://gnadnivek.github.io">Kevin Dang</a></li>
-	  <li>Arm: <a href="https://tshar.github.io">Tanav</a>, <a href="https://ladzone.github.io">Alay</a>, <a href="https://hennok129.github.io">Henook?</a></li>
-	  <li><a href="http://www.dronefair.ca/university-challenge.html">Drone:</a> <a href="https://n01077691.github.io">Denis</a>, <a href="https://n01074838.github.io">Pramit</a>, <a href="https://Libs1.github.io">Kevin Libdan?</a></li>
-	  <li>Autonomous: <a href="https://janyalda.github.io">Jan Yalda</a>, <a href="https://bilfnous.github.io">Bilal</a>, <a href="https://khemar1.github.io">Khemar?</a></li> 
-	  <li><a href="http://www.robotshop.com/ca/en/gopigo-robot-kit-raspberry-pi.html">RoboAlarm</a>/<a href="http://www.vexrobotics.com/276-2700.html">Vex</a>: <a href="https://nightmarebat.github.io">Ratha</a>, <a href="https://github.io">Achille</a>, <a href="https://github.io">Jan Vincent</a>, <a href="https://github.io">Kenneth Tudo</a></li>
-	  </ol>
-	</li>
-   </ul>
-  </p>
- </SECTION>
- 
- <SECTION ID="Section_2">
- <H3>Week 2</H3>
-  <p>
-   <ul>
-    <li>Start off by watching some soldering <a href="https://www.youtube.com/watch?v=BLfXXRfRIzY&list=PLQ32vZrF5U2lFOJTtZDytBWBYVLNp4RYz">videos</a>.</li>
-	<li>Project Proposal Due (<a href="weeks/Week2ProjectProposalRubric.xml">rubric</a>), hand in your hardcopy of a completed/modified template including the methodology and the respective table. Please also make a decision regarding the following 2 forms and submit with your respective answers: <a href="http://humber.ca/brand/sites/default/files/Photo%20Consent%20Form_rev29Jan2016.pdf">photo consent</a> (mostly for open house and videos) and <a href="http://www.humber.ca/brand/sites/default/files/Humber%20STUDENT%20WORKS%20Consent%20July2014_FIN.pdf">project consent</a> (though you cover this one mostly through the licensing you choose for your repository).</li>
-	<li>Parts Kit. Safety including safety glasses.</li>
-	<li><a href="http://radiojove.gsfc.nasa.gov/telescope/soldering.htm">NASA Jove Project.</a>
-	<li>Use <a 
-href="http://www.cadsoftusa.com/download-eagle/">Eagle</a> with the freeware license to change Simon’s name to your own name on the Printed Circuit Board files available at <a 
-href="https://github.com/vladporcila/ModularSenseHatStripped">https://github.com/vladporcila/ModularSenseHatStripped</a> for the sensor hat and get your PCB laser etched in J206 with help from Kelly and/or Vlad their email address is prototypelab_at_humber.ca.
-    Please take a look at using the <a href="https://learn.sparkfun.com/tutorials/using-eagle-board-layout/generating-gerbers">Sparkfun Cam file</a>.</li>
-    <li>Microsoft Product discussion, MS Project critical path and dependencies are due Week 3 (<a href="weeks/Week3RubricforProjectSchedule.xml">rubric</a>).</li>
-   </ul>
-  </p>
- </SECTION>
- 
- <SECTION ID="Section_1">
- <H3>Week 1</H3>
-  <p>
-   <ul>
-    <li>Start off by logging into a computer and during the log in process identify ten of the pieces of Tech in the <a href="weeks/week1projectbox.jpg">clear project box</a> (this is an individual <a href="weeks/Week1TechIdentificationQuiz.docx">quiz</a> to be done without communicating with others).</li>
-	<li>The clear box represents the maximum size of your project which is in alignment with the space below the tray in your Humber North Campus Electronics Parts kit, you are expected to bring both along with safety glasses every week.</li>
-	<li>If your computer has booted:</li>
-	<ol>
-	 <li>Please install <a href="https://desktop.github.com/">https://desktop.github.com/</a></li>
-	 <li>Create an account on <a href="https://github.com/join?source=header-home">GitHub.</a>
-	  <ol>
-	   <li>Select a Username for yourself at GitHub.</li>
-	   <li>Enter an email address.</li>
-	   <li>Choose a new, unique password for GitHub and record it.</li>
-	   <li>Read the Terms of Service.</li>
-	   <li>Read the Privacy Policy.</li>
-	   <li>Decide whether you would like to agree or whether you would like to ask for alternate arrangements.</li>
-	   <li>Click on create an account or ask for an alternate arrangement.</li>
-	   <li>If you created an account, and are comfortable with public choose Free plan (no private repositories).</li>
-	   <li>Regarding programming experience, usage plans, and descriptions, note that you have the option to skip this step.
-	   <li>Start a project.</li>
-	   <li>Verify your email address.</li>
-	   <li>Create a new repository with the Repository name Username.github.io</li>
-	   <li>The Description is optional.</li>
-	   <li>Select Initialize this repository with a README.</li>
-	   <li>Add .gitignore for C.</li>
-	   <li>Add a license: GNU Affero General Public License v3.0.</li>
-	   <li>Create repository.</li>
-      </ol>
-	 <li>Clone <a href="https://github.com/six0four/six0four.github.io">https://github.com/six0four/six0four.github.io</a> (<a href="http://joe.blog.freemansoft.com/2014/04/github-clone-to-desktop-with-windows.html">helpful link</a>)</li>
-	 <li>Add the index.html, indexmenu.html, and indexcontent.html from <a href="https://github.com/six0four/six0four.github.io">https://github.com/six0four/six0four.github.io</a> as well as the template folder to your repository.
-	 <li>Open Username.github.io with a web browser (Note that you may need to go to Username.github.io/indexcontent.html instead until you have updated your template and index files).
-	</ol>
-    <li>Welcome to your IoT themed hardware projects. Let's get started with some <a href="https://www.youtube.com/watch?v=kM-DXWEns2Y&t=28s">reflective learning.</a></li>
-    <li>Project Proposal <a href="weeks/Week1ProjectProposalStudentName.docx">template</a></li>
-    <li>2016 project choices (show placards from previous projects):</li>
-	<li>Existing Industry Partner</li>
-	<li>1. <a href="http://www.crystalfountains.com">Synchronized Fountain Display</a></li>
-	<li>2. Industry 4.0, OPCUA</li>
-	<li>Humber Automation/Mechatronics Program</li>
-	<li>3. PoE Automation cell monitor</li>
-	<li>Humber Green House</li>
-	<li>4. <a href="http://farmbot.io">FarmBot</a></li>
-	<li>Kortright Centre</li>
-	<li>5. Home Automation <a 
-href="https://www.thestar.com/life/homes/2016/06/04/active-house-design-gets-a-real-life-test-drive.html">https://www.thestar.com/life/homes/2016/06/04/active-house-design-gets-a-real-life-test-drive.html</a></li>
-	<li>6. Insulation multiplexed grid of sensors</li>
-	<li>7. Remote sensors <a 
-href="https://sowc.ca/facilities/data-platform/">https://sowc.ca/facilities/data-platform/</a></li>
-	<li>Humber Sustainable Technology Program</li>
-	<li>8. Solar Panel interactive display</li>
-	<li>Humber Sustainability/Arboretum</li>
-	<li>9. Langstroth Bee tracker</li>
-	<li>Future Humber Quadcopter Swarm</li>
-	<li>10. <a 
-href="http://www.bestbuy.ca/en-CA/product/litehawk-litehawk-high-roller-mini-rc-multi-rotor-air-vehicle-red-31406/10361895.aspx">http://www.bestbuy.ca/en-CA/product/litehawk-litehawk-high-roller-mini-rc-multi-rotor-air-vehicle-red-31406/10361895.aspx</a>
-<a 
-href="http://dzlsevilgeniuslair.blogspot.ca/2013/11/more-toy-quadcopter-hacking.html">http://dzlsevilgeniuslair.blogspot.ca/2013/11/more-toy-quadcopter-hacking.html</a></li>
-	<li>Humber Engineering Technology Parts Crib</li>
-	<li>11. Parts Crib database</li>
-	<li>Humber Public Safety</li>
-	<li>12. Parking Lot combining features seen at Yorkdale and Sherway Gardens</li>
-	<li>Humber School of Media Studies (along with Creative Enterprises, including Digital Media)</li>
-	<li>13. Voice recognition, akin to Amazon Alexa</li>
-	<li>Humber Wireless Program</li>
-	<li>14. Wifi Bridge, reporting up time</li>
-	<li>15. IPenbaled8USB-PsdU for cluster</li>
-	<li>Humber HRT (along with Health and Wellness Innovation Centre)</li>
-	<li>16. Health and Wellness: <a href="https://library.humber.ca/collections/islandora/object/islandora%3A247">gO2: Oxygen Therapy Rehabilitation Device thesis example</a></li>
-	<li>In the spirit of Entrepreneurpship:</li>
-	<li>17. Propose a project meeting CENG 317 and CENG 319 requirements</li>
-    <li><a 
-href="http://munro.humber.ca/~mdrk0011/projects/cribpi.php">Getting 
-started with a single board microcomputer, comprised of a 900MHz quad-core ARM Cortex-A7 CPU  with 1GB SDRAM, 10/100 Mbit/s 
-Ethernet, GPIO, UART, I²C bus, SPI bus, and 8 GB of Secure Digital storage from the Humber College Institute of 
-Technology & Advanced Learning North Campus Technology Parts 
-Crib</a></li>
-	<li>Electives schedules.</li>
-   </ul>
-  </p>
- </SECTION>
- 
- <SECTION ID="Section_0">
-  <H3>Week 0</H3>
-   <p><ul>
-    <li>Solder together a sensor hat (parts provided from J206) for a Raspberry Pi 3 (that you purchase). This Broadcom development platform was chosen for a number of reasons. Let us start with platform requirements, it should be able to be used to create a small programmable device capable of connecting to enterprise Wi-Fi, bluetooth, and I2C. The NXP HCS12 can have a network stack loaded on it, but then not be able to do much more and thus the device would require multiple HCS12s for this purpose causing an increase in cost. Likewise with Atmel based Arduinos, connecting them to enterprise Wi-Fi is not straighforward. TI's beaglebone shows promise as an alternative however you would need to redesign the sensor hat in order to be compatible.</li>
-	<li>Kits of sensor hat parts should be available in J206 (hours posted outside the door) to get started before the term starts if you like.</li>
-	<li>Here are some videos on soldering: <a 
-href="https://www.youtube.com/watch?v=BLfXXRfRIzY&list=PLQ32vZrF5U2lFOJTtZDytBWBYVLNp4RYz">https://www.youtube.com/watch?v=BLfXXRfRIzY&list=PLQ32vZrF5U2lFOJTtZDytBWBYVLNp4RYz</a> be sure to get Kelly and Vlad’s input on how to solder safely in J206.</li>
-	<li>I have my Pi 3 in this case <a href="http://www.canakit.com/raspberry-pi-black-case.html">http://www.canakit.com/raspberry-pi-black-case.html</a> and we bought USB network adaptors from Tiger Direct. Note that USB webcams are more economical and robust than pi specific ones. Paul Moggach's Raspberry Pi Technical Notes which give some idea of how to use the network adaptor and more extensive programming examples, than the simple program that should blink the (red-green) LED that I emailed, are available via login at: <a 
-href="https://mywiki.humber.ca/display/~n01018544/Technical+Notes">https://mywiki.humber.ca/display/~n01018544/Technical+Notes</a></li>
-	<li>There is also a guide to buying a Raspberry Pi as part of <a href="https://www.lynda.com/Raspberry-Pi-tutorials/Up-Running-Raspberry-Pi/191267-2.html">https://www.lynda.com/Raspberry-Pi-tutorials/Up-Running-Raspberry-Pi/191267-2.html</a></li>
-	<li>Humber students/staff/faculty/Admin now have full access to Lynda.com. Access 1000's of online videos ranging from Business, Creative and Technology topics.<ol>
-	<li>Visit lynda.com website</li>
-	<li>Click 'Sign In' button</li>
-	<li>Click Organization Login tab (NOT Individual Login)</li>
-	<li>Enter 'www.humber.ca' under organization's URL</li>
-	<li>Click 'Go' and you will be redirected to login.humber.ca</li>
-	<li>Enter your Humber username and password and click 'LOGIN' button</li>
-	<li>You will be redirected back to Lynda.com with full course access to create your own user name.</ol></li>
-   </ul>
-  </p>
- </SECTION>
- 
- <SECTION ID="Section_15">
-  <H3>Future Hardware Weeks</H3>
-  <p><ul>
-   <li>Week 4 Budget Due</li>
-   <li>Week 5 Progress Report Due (including proof of order)</li>
-   <li>Week 6 Progress Report Due</li>
-   <li>Week 7 PCB Due</li>
-   <li>Week 8 Placard Due</li>
-   <li>Week 9 Progress Report Due</li>
-   <li>Week 10 Progress Report Due</li>
-   <li>Week 11 Progress Report Due</li>
-   <li>Week 12 Progress Report Due</li>
-   <li>Week 13 Presentation Due</li>
-   <li>Week 14 Build Instructions Due</li>
-   <li>Week 15 30 Second Script Due</li>
-   <li><a href="http://www.openscad.org/downloads.html">http://www.openscad.org/downloads.html</a></li>
-   <li><a href="http://www.w3schools.com/html/html_lists.asp">http://www.w3schools.com/html/html_lists.asp</a></li>
-  </ul></p>
- </SECTION>
+				</p>
 
- <SECTION ID="Section_16">
-  <H3>Integration Weeks</H3>
-  <p><ol>
-   <li>Introduction</li>
-   <li>Software Requirements Specification</li>
-   <li>Declaration of Authourship</li> 
-   <li>References: APA format</li>
-   <li>Open House</li>
-   <li>Presentations</li>
-  </ol></p>
- </SECTION>
-  
- <SECTION ID="Section_31">
-  <H3>Past Projects</H3>
-  <p><ul>
-    <li><a href="http://munro.humber.ca/~mdrk0011/projects/">http://munro.humber.ca/~mdrk0011/projects/</a></li>
-  </ul></p>
- </SECTION>
 
-</ARTICLE>
+
+
+
+
+
+			</SECTION>
+
+
+			<SECTION ID="Section_13">
+				<H3>Week 13</H3>
+				<p>
+
+					Submission of PowerPoint <br>
+
+					<video width="320" height="240" controls>
+						<source src="video/buildvideo.mp4" type="video/mp4">
+							Your browser does not support the video tag.
+						</video>
+
+						<br>
+
+						Submission of Powerpoint <a href="/documentation/powerPoint.odp"> Power Point </a>
+
+
+
+
+					</p>
+				</SECTION>
+
+
+
+
+				<SECTION ID="Section_12">
+					<H3>Week 12</H3>
+					<p>
+
+						Project Status
+
+
+						<br>
+
+						<p> The main purpose of this week is to find and test the optimal point the camera should be pointed to. 
+
+							So some of requirements to allow the license plate to read is to have 
+							<br>
+							1. High accuracy of the plate and correct of the plate
+							<br>
+							2. Correct distance from camera
+							<br>
+							3. Full vision of plate
+
+
+
+							I am aware that my testing sample is small and there some consistency on the photo due to field of vision need to be 
+
+							adjusted.
+
+
+
+							The testing method is taking tests of the plate is vision and changing the distance from the image to the camera with increments of 15 cm
+
+
+
+						</p>
+
+
+
+
+
+						<img src="/image/test_result/ea7the.jpg" alt="orignal image" width="128" height="128">
+
+						<br>
+
+						This is the original license plate that being used
+
+						<br>
+
+
+
+						<img src="/image/test_result/15cm.png" alt="15 cm test" >
+
+						<br>
+
+						This is the result of 15 cm 
+
+						<br>
+
+
+
+						<img src="/image/test_result/30cm.png" alt="30 cm test" >
+
+						<br>
+
+						This is the result of 30 cm 
+
+						<br>
+
+						<img src="/image/test_result/45 cm.png" alt="45 cm test" >
+
+						<br>
+
+						This is the result of 45 cm 
+
+						<br>
+
+						<img src="/image/test_result/60cm.png" alt="60 cm test" >
+
+						<br>
+
+						This is the result of 60 cm 
+
+						<br>
+
+						<img src="/image/test_result/75cm.png" alt="75 cm test" >
+
+						<br>
+
+						This is the result of 75 cm 
+
+						<br>
+
+						<br>
+
+
+
+						<p> 
+
+							So the observation is the plate is giving the correct plate number from 15 cm to 
+
+							60cm. On the 75cm distance its getting the wrong distance. 
+
+							<br>
+
+							<br>
+
+
+
+							Another way to find the optimal distance is making sure the first result has a very high confidence.
+
+							so this occurs around 15 cm to 45 cm with around 90% confidence of what the license plate is trying to recognize.
+
+							<br> 
+
+							<br>
+
+							The final thing to filter out to figure out the best distance is to make sure the 2nd confidence level should be a big delta compared to the first
+
+							confidence level plate. This will ensure that it is less likely that the 2nd wrong license plate to be recognized as first guess plate.
+
+							Looking into the data around 30 cm and 45 cm ensure around 8% or 10% difference. Thus around 30 cm and between 45 will become the best result.
+
+							<br>
+
+							<br>
+
+							So with all considerations it seems the image at 45 cm is deemed to be best distance to take photo of the plate numbers
+
+
+							<p>
+
+								Currently for the project there is consideration of switching to a proper camera in the future and there might
+
+								be some component to remove depending on the functionally of project this might remove the LCD display.  <a href="/documentation/Billofmaterial.docx"> Budget </a>
+								So it is currently way less to our inital guess of 200$ as of now
+
+
+
+							</p>
+
+							<br>
+
+
+						</p>
+
+
+
+						<br>
+
+
+
+
+
+						<SECTION ID="Section_11">
+							<H3>Week 11</H3>
+							<p>
+
+								Project Status <br>
+
+								<p> After the open house , I learnt from when I was demoing  the camera. It  was at times abit fickle due to the range and accuracy 
+									of the camera and resoultion it needs to recongize. 
+									There was also issue with power consumption of the device / heat of the camera if it need to run constantly so there should
+									be a way to turn it on and off when a sensor is asked for. Also there should be more hardware sensors addded to intergrate the whole project.
+									Currently the financial for the camera is really dependant on what the camera fits or need, ethier a connected camera or a wireless ip camera to 
+									be used.
+
+									The project is behind on the hardware reading some sensors and the softwares is mostly done 
+
+
+
+
+
+
+								</p>
+							</SECTION>
+							<SECTION ID="Section_10">
+								<H3>Week 10</H3>
+								<p>
+
+									Project Status <br>
+
+									<p> Currently I have one of the ultrasonic sensor working. Now trying to get the camera software working on raspberry pi, and the compiling and 
+										making the project is still taking a while , source and info based on 
+
+
+										<a href="http://lukagabric.com/raspberry-pi-license-plate-recognition/">Camera software resource </a>
+										<a href="https://www.modmypi.com/blog/hc-sr04-ultrasonic-range-sensor-on-the-raspberry-pi"> Ultrasonic sensor resource </a>
+
+
+
+
+									</p>
+								</SECTION>
+
+
+								<SECTION ID="Section_9">
+									<H3>Week 9</H3>
+									<p>
+
+										Submission of Video <br>
+
+										<video width="320" height="240" controls>
+											<source src="video/HardwareProject.mp4" type="video/mp4">
+												Your browser does not support the video tag.
+											</video>
+
+
+
+
+										</p>
+									</SECTION>
+
+
+
+
+									<SECTION ID="Section_8">
+										<H3>Week 8</H3>
+										<p>
+
+											Submission of Placard <a href="/image/placard.pub"> Smart Parking Lot(pub) </a>
+											<br>
+											<img src="/image/placard.PNG" alt="Project Placard" width="128" height="128">
+											<br>
+											These are the sample images to be used on the placard
+											<br>
+											<img src="/image/IMG_20161025_160239.jpg" alt="Project Picture1" width="128" height="128">
+											<img src="/image/IMG_20161025_160330.jpg" alt="Alternate Project Picture" width="128" height="128">
+
+
+
+
+
+
+										</p>
+									</SECTION>
+
+
+									<SECTION ID="Section_6">
+										<H3>Week 7</H3>
+										<p>
+
+											<img src="/image/IMG_20161019_133543.jpg" alt="Raspberry Pi  Reading" width="128" height="128">
+											These are the sensor readings from PCB running on the raspberry PI
+
+
+											<img src="/image/IMG_20161019_133629.jpg" alt="Raspberry Pi  Reading" width="128" height="128">
+											This is the led lighting up , using the first week code 
+
+										</p>
+									</SECTION>
+
+
+									<SECTION ID="Section_5">
+										<H3>Week 6</H3>
+										<p>
+											<li><img src="/image/IMG_20161012_130944.jpg" alt="Current Progress " width="128" height="128"></li>
+											Currently I attached the lcd as for the build. The camera module missing  due to being backlog at my store, and the board is missing that going to come later.
+											Some issues we found with our previous budget was that the sensor we orginally planned was not capable to run on the raspberry PI so we ordered a cheaper 
+											ultrasonic HC-SR04 senor that allowed us to fit 2 sensors rather than 1. 
+										</p>
+									</SECTION>
+
+									<SECTION ID="Section_4">
+										<H3>Week 5</H3>
+										<p>
+											<ul>
+												<li><img src="/image/IMG_20161012_115150.jpg" alt="List of current Materials" width="128" height="128"></li>
+												<li>Current parts collected this week </li>
+
+											</ul>
+										</p>
+									</SECTION>
+
+
+									<SECTION ID="Section_3">
+										<H3>Week 3</H3>
+										<p>
+											<ul>
+												<li>Project Schedule Due.</li>
+												<li>Budget Due next week.</li>
+												<li>2016-2017 Tuesday Projects:
+													<ol>
+														<li>Breathalyzer: <a href="https://EugeneHasJeans.github.io">Eugene</a>, <a href="https://Adriene.github.io">Adriene</a>, <a href="https://RDoughBoy.github.io">Ryan</a></li>
+														<li>Crib: <a href="https://rafyo127.github.io">Rafil</a>, <a href="https://Masoud647.github.io">Masoud</a>, <a href="https://diveshoree.github.io">Divesh</a></li>
+														<li>Solar: <a href="https://steve-spiteri.github.io">Steve</a>, <a href="https://github.com/Roflwaffle18/Roflwaffle18.github.io">Salvatore</a>, <a href="https://richard-burak.github.io">Richard</a></li>
+														<li>Bees: <a href="https://pwestman.github.io">Paul</a>, <a href="https://github.com/yurii">Yurii</a>, <a href="https://robertoloja.github.io">Roberto</a></li>
+														<li>Flow: <a href="https://github.com/mndk0076/mndk0076.github.io">Kenneth Mendoza</a>, <a href="https://github.io">Matheus</a>, <a href="https://github.com/ssehra">Sukhdeep</a></li>
+														<li><a href="https://www.youtube.com/watch?v=H36ebUQAkGs">Crystal</a><a href="https://www.youtube.com/user/crystalfountainsinc">?</a>: <a href="https://github.com/irwintr/irwintr.github.io">Trenton</a>, <a href="https://Nefarix.github.io">Oliver</a>, <a href="https://SomethingTimeyWimey.github.io">Vishwas</a></li>
+														<li>Telematics: <a href="https://Jabneel.github.io">Jabneel</a>, <a href="https://github.com/jerome">Jerome</a>, <a href="https://github.com/n01086924">Jaewoong</a></li>
+														<li>House: <a href="https://github.com/gurpreetjhita/gurpreetjhita.github.io">Gurpreet</a>, <a href="https://abhirupdas033.github.io">Abhirup</a>, <a href="https://saadq12.github.io">Saad</a></li> 
+														<li>FarmBot: <a href="https://StudentEng2016.github.io">Adanegbe</a>, <a href="https://maheshwerie.github.io">Maheshwerie</a></li>
+														<li>Parking: <a href="https://github.com/n01075212/n01075212.github.io">Alisha</a></li> 
+													</ol>
+												</li>
+												<li>2016-2017 Wednesday Projects:
+													<ol>
+														<li>FarmBot (cont.) <a href="https://mahsm.github.io">Maasha</a></li>
+														<li>Parking (cont.) <a href="https://bigbosstony.github.io">Yan Yu</a>, <a href="https://tc168.github.io">Thomas</a></li> 
+														<li>Voice: <a href="https://willcodyanderson.github.io">William</a>, <a href="https://Sanjay4966.github.io">Sanjay</a>, <a href="https://gnadnivek.github.io">Kevin Dang</a></li>
+														<li>Arm: <a href="https://tshar.github.io">Tanav</a>, <a href="https://ladzone.github.io">Alay</a>, <a href="https://hennok129.github.io">Henook?</a></li>
+														<li><a href="http://www.dronefair.ca/university-challenge.html">Drone:</a> <a href="https://n01077691.github.io">Denis</a>, <a href="https://n01074838.github.io">Pramit</a>, <a href="https://Libs1.github.io">Kevin Libdan?</a></li>
+														<li>Autonomous: <a href="https://janyalda.github.io">Jan Yalda</a>, <a href="https://bilfnous.github.io">Bilal</a>, <a href="https://khemar1.github.io">Khemar?</a></li> 
+														<li><a href="http://www.robotshop.com/ca/en/gopigo-robot-kit-raspberry-pi.html">RoboAlarm</a>/<a href="http://www.vexrobotics.com/276-2700.html">Vex</a>: <a href="https://nightmarebat.github.io">Ratha</a>, <a href="https://github.io">Achille</a>, <a href="https://github.io">Jan Vincent</a>, <a href="https://github.io">Kenneth Tudo</a></li>
+													</ol>
+												</li>
+											</ul>
+										</p>
+									</SECTION>
+
+									<SECTION ID="Section_2">
+										<H3>Week 2</H3>
+										<p>
+											<ul>
+												<li>Start off by watching some soldering <a href="https://www.youtube.com/watch?v=BLfXXRfRIzY&list=PLQ32vZrF5U2lFOJTtZDytBWBYVLNp4RYz">videos</a>.</li>
+												<li>Project Proposal Due (<a href="weeks/Week2ProjectProposalRubric.xml">rubric</a>), hand in your hardcopy of a completed/modified template including the methodology and the respective table. Please also make a decision regarding the following 2 forms and submit with your respective answers: <a href="http://humber.ca/brand/sites/default/files/Photo%20Consent%20Form_rev29Jan2016.pdf">photo consent</a> (mostly for open house and videos) and <a href="http://www.humber.ca/brand/sites/default/files/Humber%20STUDENT%20WORKS%20Consent%20July2014_FIN.pdf">project consent</a> (though you cover this one mostly through the licensing you choose for your repository).</li>
+												<li>Parts Kit. Safety including safety glasses.</li>
+												<li><a href="http://radiojove.gsfc.nasa.gov/telescope/soldering.htm">NASA Jove Project.</a>
+													<li>Use <a 
+														href="http://www.cadsoftusa.com/download-eagle/">Eagle</a> with the freeware license to change Simon’s name to your own name on the Printed Circuit Board files available at <a 
+														href="https://github.com/vladporcila/ModularSenseHatStripped">https://github.com/vladporcila/ModularSenseHatStripped</a> for the sensor hat and get your PCB laser etched in J206 with help from Kelly and/or Vlad their email address is prototypelab_at_humber.ca.
+														Please take a look at using the <a href="https://learn.sparkfun.com/tutorials/using-eagle-board-layout/generating-gerbers">Sparkfun Cam file</a>.</li>
+														<li>Microsoft Product discussion, MS Project critical path and dependencies are due Week 3 (<a href="weeks/Week3RubricforProjectSchedule.xml">rubric</a>).</li>
+													</ul>
+												</p>
+											</SECTION>
+
+											<SECTION ID="Section_1">
+												<H3>Week 1</H3>
+												<p>
+													<ul>
+														<li>Start off by logging into a computer and during the log in process identify ten of the pieces of Tech in the <a href="weeks/week1projectbox.jpg">clear project box</a> (this is an individual <a href="weeks/Week1TechIdentificationQuiz.docx">quiz</a> to be done without communicating with others).</li>
+														<li>The clear box represents the maximum size of your project which is in alignment with the space below the tray in your Humber North Campus Electronics Parts kit, you are expected to bring both along with safety glasses every week.</li>
+														<li>If your computer has booted:</li>
+														<ol>
+															<li>Please install <a href="https://desktop.github.com/">https://desktop.github.com/</a></li>
+															<li>Create an account on <a href="https://github.com/join?source=header-home">GitHub.</a>
+																<ol>
+																	<li>Select a Username for yourself at GitHub.</li>
+																	<li>Enter an email address.</li>
+																	<li>Choose a new, unique password for GitHub and record it.</li>
+																	<li>Read the Terms of Service.</li>
+																	<li>Read the Privacy Policy.</li>
+																	<li>Decide whether you would like to agree or whether you would like to ask for alternate arrangements.</li>
+																	<li>Click on create an account or ask for an alternate arrangement.</li>
+																	<li>If you created an account, and are comfortable with public choose Free plan (no private repositories).</li>
+																	<li>Regarding programming experience, usage plans, and descriptions, note that you have the option to skip this step.
+																		<li>Start a project.</li>
+																		<li>Verify your email address.</li>
+																		<li>Create a new repository with the Repository name Username.github.io</li>
+																		<li>The Description is optional.</li>
+																		<li>Select Initialize this repository with a README.</li>
+																		<li>Add .gitignore for C.</li>
+																		<li>Add a license: GNU Affero General Public License v3.0.</li>
+																		<li>Create repository.</li>
+																	</ol>
+																	<li>Clone <a href="https://github.com/six0four/six0four.github.io">https://github.com/six0four/six0four.github.io</a> (<a href="http://joe.blog.freemansoft.com/2014/04/github-clone-to-desktop-with-windows.html">helpful link</a>)</li>
+																	<li>Add the index.html, indexmenu.html, and indexcontent.html from <a href="https://github.com/six0four/six0four.github.io">https://github.com/six0four/six0four.github.io</a> as well as the template folder to your repository.
+																		<li>Open Username.github.io with a web browser (Note that you may need to go to Username.github.io/indexcontent.html instead until you have updated your template and index files).
+																		</ol>
+																		<li>Welcome to your IoT themed hardware projects. Let's get started with some <a href="https://www.youtube.com/watch?v=kM-DXWEns2Y&t=28s">reflective learning.</a></li>
+																		<li>Project Proposal <a href="weeks/Week1ProjectProposalStudentName.docx">template</a></li>
+																		<li>2016 project choices (show placards from previous projects):</li>
+																		<li>Existing Industry Partner</li>
+																		<li>1. <a href="http://www.crystalfountains.com">Synchronized Fountain Display</a></li>
+																		<li>2. Industry 4.0, OPCUA</li>
+																		<li>Humber Automation/Mechatronics Program</li>
+																		<li>3. PoE Automation cell monitor</li>
+																		<li>Humber Green House</li>
+																		<li>4. <a href="http://farmbot.io">FarmBot</a></li>
+																		<li>Kortright Centre</li>
+																		<li>5. Home Automation <a 
+																			href="https://www.thestar.com/life/homes/2016/06/04/active-house-design-gets-a-real-life-test-drive.html">https://www.thestar.com/life/homes/2016/06/04/active-house-design-gets-a-real-life-test-drive.html</a></li>
+																			<li>6. Insulation multiplexed grid of sensors</li>
+																			<li>7. Remote sensors <a 
+																				href="https://sowc.ca/facilities/data-platform/">https://sowc.ca/facilities/data-platform/</a></li>
+																				<li>Humber Sustainable Technology Program</li>
+																				<li>8. Solar Panel interactive display</li>
+																				<li>Humber Sustainability/Arboretum</li>
+																				<li>9. Langstroth Bee tracker</li>
+																				<li>Future Humber Quadcopter Swarm</li>
+																				<li>10. <a 
+																					href="http://www.bestbuy.ca/en-CA/product/litehawk-litehawk-high-roller-mini-rc-multi-rotor-air-vehicle-red-31406/10361895.aspx">http://www.bestbuy.ca/en-CA/product/litehawk-litehawk-high-roller-mini-rc-multi-rotor-air-vehicle-red-31406/10361895.aspx</a>
+																					<a 
+																					href="http://dzlsevilgeniuslair.blogspot.ca/2013/11/more-toy-quadcopter-hacking.html">http://dzlsevilgeniuslair.blogspot.ca/2013/11/more-toy-quadcopter-hacking.html</a></li>
+																					<li>Humber Engineering Technology Parts Crib</li>
+																					<li>11. Parts Crib database</li>
+																					<li>Humber Public Safety</li>
+																					<li>12. Parking Lot combining features seen at Yorkdale and Sherway Gardens</li>
+																					<li>Humber School of Media Studies (along with Creative Enterprises, including Digital Media)</li>
+																					<li>13. Voice recognition, akin to Amazon Alexa</li>
+																					<li>Humber Wireless Program</li>
+																					<li>14. Wifi Bridge, reporting up time</li>
+																					<li>15. IPenbaled8USB-PsdU for cluster</li>
+																					<li>Humber HRT (along with Health and Wellness Innovation Centre)</li>
+																					<li>16. Health and Wellness: <a href="https://library.humber.ca/collections/islandora/object/islandora%3A247">gO2: Oxygen Therapy Rehabilitation Device thesis example</a></li>
+																					<li>In the spirit of Entrepreneurpship:</li>
+																					<li>17. Propose a project meeting CENG 317 and CENG 319 requirements</li>
+																					<li><a 
+																						href="http://munro.humber.ca/~mdrk0011/projects/cribpi.php">Getting 
+																						started with a single board microcomputer, comprised of a 900MHz quad-core ARM Cortex-A7 CPU  with 1GB SDRAM, 10/100 Mbit/s 
+																						Ethernet, GPIO, UART, I²C bus, SPI bus, and 8 GB of Secure Digital storage from the Humber College Institute of 
+																						Technology & Advanced Learning North Campus Technology Parts 
+																						Crib</a></li>
+																						<li>Electives schedules.</li>
+																					</ul>
+																				</p>
+																			</SECTION>
+
+																			<SECTION ID="Section_0">
+																				<H3>Week 0</H3>
+																				<p><ul>
+																					<li>Solder together a sensor hat (parts provided from J206) for a Raspberry Pi 3 (that you purchase). This Broadcom development platform was chosen for a number of reasons. Let us start with platform requirements, it should be able to be used to create a small programmable device capable of connecting to enterprise Wi-Fi, bluetooth, and I2C. The NXP HCS12 can have a network stack loaded on it, but then not be able to do much more and thus the device would require multiple HCS12s for this purpose causing an increase in cost. Likewise with Atmel based Arduinos, connecting them to enterprise Wi-Fi is not straighforward. TI's beaglebone shows promise as an alternative however you would need to redesign the sensor hat in order to be compatible.</li>
+																					<li>Kits of sensor hat parts should be available in J206 (hours posted outside the door) to get started before the term starts if you like.</li>
+																					<li>Here are some videos on soldering: <a 
+																						href="https://www.youtube.com/watch?v=BLfXXRfRIzY&list=PLQ32vZrF5U2lFOJTtZDytBWBYVLNp4RYz">https://www.youtube.com/watch?v=BLfXXRfRIzY&list=PLQ32vZrF5U2lFOJTtZDytBWBYVLNp4RYz</a> be sure to get Kelly and Vlad’s input on how to solder safely in J206.</li>
+																						<li>I have my Pi 3 in this case <a href="http://www.canakit.com/raspberry-pi-black-case.html">http://www.canakit.com/raspberry-pi-black-case.html</a> and we bought USB network adaptors from Tiger Direct. Note that USB webcams are more economical and robust than pi specific ones. Paul Moggach's Raspberry Pi Technical Notes which give some idea of how to use the network adaptor and more extensive programming examples, than the simple program that should blink the (red-green) LED that I emailed, are available via login at: <a 
+																							href="https://mywiki.humber.ca/display/~n01018544/Technical+Notes">https://mywiki.humber.ca/display/~n01018544/Technical+Notes</a></li>
+																							<li>There is also a guide to buying a Raspberry Pi as part of <a href="https://www.lynda.com/Raspberry-Pi-tutorials/Up-Running-Raspberry-Pi/191267-2.html">https://www.lynda.com/Raspberry-Pi-tutorials/Up-Running-Raspberry-Pi/191267-2.html</a></li>
+																							<li>Humber students/staff/faculty/Admin now have full access to Lynda.com. Access 1000's of online videos ranging from Business, Creative and Technology topics.<ol>
+																								<li>Visit lynda.com website</li>
+																								<li>Click 'Sign In' button</li>
+																								<li>Click Organization Login tab (NOT Individual Login)</li>
+																								<li>Enter 'www.humber.ca' under organization's URL</li>
+																								<li>Click 'Go' and you will be redirected to login.humber.ca</li>
+																								<li>Enter your Humber username and password and click 'LOGIN' button</li>
+																								<li>You will be redirected back to Lynda.com with full course access to create your own user name.</ol></li>
+																							</ul>
+																						</p>
+																					</SECTION>
+
+																					<SECTION ID="Section_15">
+																						<H3>Future Hardware Weeks</H3>
+																						<p><ul>
+																							<li>Week 4 Budget Due</li>
+																							<li>Week 5 Progress Report Due (including proof of order)</li>
+																							<li>Week 6 Progress Report Due</li>
+																							<li>Week 7 PCB Due</li>
+																							<li>Week 8 Placard Due</li>
+																							<li>Week 9 Progress Report Due</li>
+																							<li>Week 10 Progress Report Due</li>
+																							<li>Week 11 Progress Report Due</li>
+																							<li>Week 12 Progress Report Due</li>
+																							<li>Week 13 Presentation Due</li>
+																							<li>Week 14 Build Instructions Due</li>
+																							<li>Week 15 30 Second Script Due</li>
+																							<li><a href="http://www.openscad.org/downloads.html">http://www.openscad.org/downloads.html</a></li>
+																							<li><a href="http://www.w3schools.com/html/html_lists.asp">http://www.w3schools.com/html/html_lists.asp</a></li>
+																						</ul></p>
+																					</SECTION>
+
+																					<SECTION ID="Section_16">
+																						<H3>Integration Weeks</H3>
+																						<p><ol>
+																							<li>Introduction</li>
+																							<li>Software Requirements Specification</li>
+																							<li>Declaration of Authourship</li> 
+																							<li>References: APA format</li>
+																							<li>Open House</li>
+																							<li>Presentations</li>
+																						</ol></p>
+																					</SECTION>
+
+																					<SECTION ID="Section_31">
+																						<H3>Past Projects</H3>
+																						<p><ul>
+																							<li><a href="http://munro.humber.ca/~mdrk0011/projects/">http://munro.humber.ca/~mdrk0011/projects/</a></li>
+																						</ul></p>
+																					</SECTION>
+
+																				</ARTICLE>
