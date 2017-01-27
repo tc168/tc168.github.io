@@ -13,13 +13,13 @@ Projects website: https://tc168.github.io/
 Team members:
 -------------
 
-Alisha Singh Chauhan SID: N01075212
+Alisha Singh Chauhan
 
-Yan Yu (Tony) SID : N00769714
+Yan Yu (Tony) 
 
-Thomas Chang SID : N01040694
+Thomas Chang 
 
-Achille Mattapulluit SID : N01081590
+Achille Mattapulluit
 
  
 
